@@ -20,8 +20,8 @@ function preload() {
 function setup() {
     createCanvas(600, 600);
     flappy = new Bird();
-    pipes[0] = new Pipe();
-    pipes[0].display();
+    pipes.push(new Pipe());
+
 
 }
 
@@ -29,6 +29,16 @@ function draw() {
     background(50);
     flappy.fly();
     flappy.display();
+
+    if(frameCount % 60 === 0){
+        pipes.push(new Pipe());
+
+    }
+    for (let i = 0; i < pipes.length; i++) {
+        pipes[i].show();
+        pipes[i].update();
+    }
+
 }
 
 // if mouse is pressed jump
