@@ -8,7 +8,7 @@ function Bird() {
     this.display = function () {
         imageMode(CENTER);
         // scale(0.7);
-        image(bird, this.x, this.y, width/6, height/10);
+        image(bird, this.x, this.y, width / 6, height / 10);
         // ellipse(this.x, this.y, 25, 25)
     };
 
@@ -17,23 +17,27 @@ function Bird() {
         this.velocity *= 0.95;
         this.y += this.velocity;
 
-        if(this.y > height){
+        if (this.y > height) {
             this.y = height;
-            velocity = 0;
-            // noLoop();
-            // gameover.play();
+            this.velocity = 0;
+
             // GAME OVER
+            // textSize(64);
+            // text('GAME OVER', 0,0)
+            noLoop();
+
+            gameover.play();
         }
-        if(this.y < 0){
+        if (this.y < 0) {
             this.y = 0;
-            velocity = 0;
+            this.velocity = 0;
             // GAME OVER
         }
     };
 
-    this.jump = function(){
+    this.jump = function () {
         this.velocity += this.up;
-        // jump.play();
+        jump.play();
     }
 
 }
