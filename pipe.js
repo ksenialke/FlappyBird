@@ -15,8 +15,4 @@ function Pipe() {
     this.update = function () {
         this.x -= this.speed;
     };
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a340cd929fb95b76d1c9f13728f9a6b57d717041

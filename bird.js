@@ -22,19 +22,16 @@ function Bird() {
             this.velocity = 0;
 
             // GAME OVER
-<<<<<<< HEAD
             // textSize(64);
             // text('GAME OVER', 0,0)
             noLoop();
 
             gameover.play();
-=======
 
             // noLoop();
             // textSize(64);
             // text('GAME OVER', 0,0)
             // gameover.play();
->>>>>>> a340cd929fb95b76d1c9f13728f9a6b57d717041
         }
         if (this.y < 0) {
             this.y = 0;
@@ -47,9 +44,4 @@ function Bird() {
         this.velocity += this.up;
         jump.play();
     }
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a340cd929fb95b76d1c9f13728f9a6b57d717041
