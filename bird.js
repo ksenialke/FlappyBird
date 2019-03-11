@@ -4,12 +4,14 @@ function Bird() {
     this.gravity = 0.4;
     this.velocity = 0;
     this.up = -15;
+    this.score = 0;
+    this.width = width / 6; //100
+    this.height = height / 10; //60
+    this.lost = false;
 
     this.display = function () {
         imageMode(CENTER);
-        // scale(0.7);
-        image(bird, this.x, this.y, width / 6, height / 10);
-        // ellipse(this.x, this.y, 25, 25)
+        image(bird, this.x, this.y, this.width, this.height);
     };
 
     this.fly = function () {
@@ -18,30 +20,27 @@ function Bird() {
         this.y += this.velocity;
 
         if (this.y > height) {
+            // GAME OVER
+            this.lost = true;
             this.y = height;
-            this.velocity = 0;
-
-            // GAME OVER
-            // textSize(64);
-            // text('GAME OVER', 0,0)
-            noLoop();
-
-            gameover.play();
-
-            // noLoop();
-            // textSize(64);
-            // text('GAME OVER', 0,0)
-            // gameover.play();
         }
-        if (this.y < 0) {
-            this.y = 0;
-            this.velocity = 0;
+        if (this.y < 30) {
             // GAME OVER
+            this.lost = true;
         }
     };
 
     this.jump = function () {
         this.velocity += this.up;
         jump.play();
+    };
+
+    this.died = function () {
+        this.velocity = 0;
+        textSize(64);
+        text('GAME OVER', 100, height / 2);
+        noLoop();
+        gameover.play();
     }
+
 }

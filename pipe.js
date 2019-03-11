@@ -15,4 +15,22 @@ function Pipe() {
     this.update = function () {
         this.x -= this.speed;
     };
+
+    this.hit = function (bird) {
+        if ((bird.y < this.randStop + bird.height / 2) || (bird.y > this.randStart + bird.height / 2)) {
+            if (bird.x > this.x && bird.x < this.x + this.wide) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    // this.passed = function(bird) {
+    //     let passedPipes = 0;
+    //     if(this.x < bird.x){
+    //         bird.score = passedPipes;
+    //         passedPipes+=1;
+    //         console.log('passed pipes'+passedPipes)
+    //     }
+    // }
 }
